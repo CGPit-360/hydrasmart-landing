@@ -5,22 +5,22 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 const testimonials = [
   {
     quote: "I didn't realize how dehydrated I was until HydraSmart showed me the data. Now I feel genuinely better every single day.",
-    author: "Maria Santos",
+    author: "Selwyn Nobleza",
     role: "College Student",
-    avatar: "https://images.unsplash.com/photo-1758922584983-82ffd5720c6a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwcHJvZmVzc2lvbmFsJTIwaGVhZHNob3QlMjBtaW5pbWFsfGVufDF8fHx8MTc3NTQ0MzgzNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    avatar: "https://scontent-mnl3-2.xx.fbcdn.net/v/t39.30808-6/488494436_122202103964173645_417545467848600273_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=53a332&_nc_ohc=Ogk0bIeXskIQ7kNvwGsB8Ie&_nc_oc=Adp9pH0oBLZQLGqmh4t3hNvZtrR_nyjY8x4dixB9qLxpJbYG7YniXRHaJGX3KfPo0_Co2TDmVRGgab4GYEZ0WfUa&_nc_zt=23&_nc_ht=scontent-mnl3-2.xx&_nc_gid=FtLZAarmiYkP9AytfV21lA&_nc_ss=7a3a8&oh=00_Af21NLm0nRCVj8zL1JLK_A458btn_lGXi7H2TrLvVZpgWw&oe=69D932FB",
     rating: 5,
   },
   {
     quote: "The gentle glow reminders changed everything. I went from 3 glasses a day to hitting my full target consistently.",
-    author: "James Rivera",
-    role: "Software Engineer",
+    author: "Vincent Solana",
+    role: "AI Prompt Specialist",
     avatar: "https://images.unsplash.com/photo-1723537742563-15c3d351dbf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdCUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90JTIwY2FzdWFsfGVufDF8fHx8MTc3NTQ0MzgzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     rating: 5,
   },
   {
     quote: "Perfect gym companion. It tracks everything without fuss and the app insights help me optimize my workout hydration.",
-    author: "Lia Tan",
-    role: "Fitness Trainer",
+    author: "Leigh Carcallas",
+    role: "Makeup Artist",
     avatar: "https://images.unsplash.com/photo-1759873821395-c29de82a5b99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHdvbWFuJTIwc21pbGluZyUyMHBvcnRyYWl0JTIwbmF0dXJhbCUyMGxpZ2h0fGVufDF8fHx8MTc3NTQ0MzgzN3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
     rating: 5,
   },
