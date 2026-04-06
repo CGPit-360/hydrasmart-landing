@@ -12,12 +12,14 @@ import { PricingSection } from "./components/PricingSection";
 import { FinalCTA } from "./components/FinalCTA";
 import { Footer } from "./components/Footer";
 import { CartDrawer, CartItem } from "./components/CartDrawer";
+import { createOrder } from "./lib/orders";
 
 const FONT = "'Plus Jakarta Sans', 'Inter', system-ui, sans-serif";
 
 export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   const handleAddToCart = useCallback((color: string, qty: number) => {
     setCartItems((prev) => {
@@ -39,6 +41,21 @@ export default function App() {
     setCartItems((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)));
   }, []);
 
+  const handleCheckout = useCallback(async () => {
+    try {
+      setCheckoutLoading(true);
+      const orderId = await createOrder(cartItems);
+      toast.success(`Order placed! Ref: ${orderId.slice(0, 8).toUpperCase()}`);
+      setCartItems([]);
+      setCartOpen(false);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Failed to place order";
+      toast.error(message);
+    } finally {
+      setCheckoutLoading(false);
+    }
+  }, [cartItems]);
+
   const cartCount = cartItems.reduce((sum, i) => sum + i.qty, 0);
 
   return (
@@ -55,7 +72,15 @@ export default function App() {
       <PricingSection onAddToCart={handleAddToCart} />
       <FinalCTA />
       <Footer />
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} items={cartItems} onRemove={handleRemove} onUpdateQty={handleUpdateQty} />
+      <CartDrawer
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={cartItems}
+        onRemove={handleRemove}
+        onUpdateQty={handleUpdateQty}
+        onCheckout={handleCheckout}
+        checkoutLoading={checkoutLoading}
+      />
     </div>
   );
 }

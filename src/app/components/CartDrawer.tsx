@@ -14,9 +14,19 @@ interface CartDrawerProps {
   items: CartItem[];
   onRemove: (id: string) => void;
   onUpdateQty: (id: string, qty: number) => void;
+  onCheckout: () => void;
+  checkoutLoading?: boolean;
 }
 
-export function CartDrawer({ open, onClose, items, onRemove, onUpdateQty }: CartDrawerProps) {
+export function CartDrawer({
+  open,
+  onClose,
+  items,
+  onRemove,
+  onUpdateQty,
+  onCheckout,
+  checkoutLoading = false,
+}: CartDrawerProps) {
   const subtotal = items.reduce((sum, item) => sum + item.price * item.qty * (item.qty >= 2 ? 0.9 : 1), 0);
 
   return (
@@ -108,10 +118,12 @@ export function CartDrawer({ open, onClose, items, onRemove, onUpdateQty }: Cart
                   <span className="text-gray-900" style={{ fontSize: 20, fontWeight: 800, letterSpacing: "-0.02em" }}>₱{subtotal.toLocaleString()}</span>
                 </div>
                 <button
+                  onClick={onCheckout}
+                  disabled={checkoutLoading}
                   className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-2xl hover:from-blue-600 hover:to-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-[0.98]"
                   style={{ fontSize: 15, fontWeight: 700 }}
                 >
-                  Checkout
+                  {checkoutLoading ? "Processing..." : "Checkout"}
                 </button>
                 <p className="text-gray-400 text-center mt-3" style={{ fontSize: 12, fontWeight: 500 }}>Free shipping on orders over ₱3,000</p>
               </div>
